@@ -1,0 +1,5 @@
+<div class="bucket">
+<h2><%= bucket.name %></h2>
+Created: <%= l bucket.creation_date, :format => :short %><br />
+Objects: <%= bucket.objects.size rescue '—' %>
+</div>

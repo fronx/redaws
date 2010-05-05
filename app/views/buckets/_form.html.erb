@@ -1,0 +1,8 @@
+<div class="error">
+  <%= flash[:error] %>
+</div>
+
+<% form_for :bucket, @bucket, :url => { :action => "create" } do |f| %>
+  Name: <%= f.text_field :name %>
+  <%= submit_tag 'create' %>
+<% end %>
