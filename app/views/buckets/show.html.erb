@@ -1,0 +1,11 @@
+<div class="bucket">
+<h2><%= @bucket.name %></h2>
+Created: <%= l @bucket.created_at, :format => :short %><br />
+Objects: <%= @bucket.object_count %>
+  <h3>Items</h3>
+  <ul class="items">
+    <% @bucket.items.each do |item| %>
+      <li><%= item.path %></li>
+    <% end %>
+  </ul>
+</div>

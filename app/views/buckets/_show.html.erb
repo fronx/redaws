@@ -1,5 +1,5 @@
 <div class="bucket">
-<h2><%= bucket.name %></h2>
-Created: <%= l bucket.creation_date, :format => :short %><br />
-Objects: <%= bucket.objects.size rescue '—' %>
+<h2><%= link_to bucket.name, bucket_path(bucket) %></h2>
+Created: <%= l bucket.created_at, :format => :short %><br />
+Objects: <%= bucket.object_count %>
 </div>
