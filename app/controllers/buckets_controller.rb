@@ -2,11 +2,11 @@ class BucketsController < ApplicationController
   before_filter :connect_to_aws
 
   def index
-    @buckets = Bucket.all
+    @buckets = Bucket.sorter.items
   end
 
   def show
-    @bucket = Bucket.find(params[:id].split('-').first.to_i)
+    @bucket = Bucket.find(params[:id])
   end
 
   def new

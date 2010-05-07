@@ -10,6 +10,14 @@ class Bucket < Remodel::Entity
 
   delegate :objects, :to => :_bucket
 
+  def self.sorter
+    @sorter ||= RemodelSorter.new(self)
+  end
+
+  def self.find(id)
+    super("#{key_prefix}:#{id}")
+  end
+
   def self.find_by_name(name)
     all.detect { |b| b.name == name }
   end
@@ -29,6 +37,10 @@ class Bucket < Remodel::Entity
       items.create(Item.from_s3_object(o))
     end
     self
+  end
+
+  def to_param
+    "#{id}"
   end
 
 protected
