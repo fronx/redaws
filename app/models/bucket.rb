@@ -39,8 +39,16 @@ class Bucket < Remodel::Entity
     self
   end
 
+  def after_save
+    self.class.sorter.add(self)
+  end
+
   def to_param
     "#{id}"
+  end
+
+  def self.delete_all
+    all.map(&:delete)
   end
 
 protected

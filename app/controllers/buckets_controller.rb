@@ -2,7 +2,7 @@ class BucketsController < ApplicationController
   before_filter :connect_to_aws
 
   def index
-    @buckets = Bucket.sorter.items
+    @buckets = Bucket.sorter.all
   end
 
   def show
